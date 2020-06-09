@@ -1,1 +1,1 @@
-buildPack: gradle
+buildPack: gradle-java11
