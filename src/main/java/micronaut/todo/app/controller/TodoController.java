@@ -8,12 +8,18 @@ import io.micronaut.http.MutableHttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.Produces;
 import io.micronaut.views.View;
+import io.micronaut.views.rocker.RockerWritable;
 import micronaut.todo.app.domain.Todo;
 import micronaut.todo.app.repository.TodoRepository;
+import views.index;
+import views.todos;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import static io.micronaut.http.MediaType.TEXT_HTML;
 
 @Controller
 public class TodoController {
@@ -24,16 +30,16 @@ public class TodoController {
         this.todoRepository = todoRepository;
     }
 
-    @View("index")
     @Get("/")
-    public String index(){
-        return "index";
+    @Produces(TEXT_HTML)
+    public HttpResponse index(){
+        return HttpResponse.ok(new RockerWritable(index.template()));
     }
 
-    @View("todos")
     @Get("/todos")
+    @Produces(TEXT_HTML)
     public HttpResponse todos(){
-        return HttpResponse.ok(CollectionUtils.mapOf("todos", todoRepository.findAll()));
+        return HttpResponse.ok(new RockerWritable(todos.template(todoRepository.findAll())));
     }
 
     @Context()

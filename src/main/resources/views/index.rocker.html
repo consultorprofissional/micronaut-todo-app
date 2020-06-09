@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,7 @@
 <section id="todocontainer">
     <h2 style="padding-top: 30px; padding-bottom: 20px;" class="text-center">Welcome to Todo Manager</h2>
     <div class="d-flex justify-content-center">
-        <form th:action="@{/todos}" method="GET" enctype="multipart/form-data">
+        <form action="/todos" method="GET" enctype="multipart/form-data">
             <div class="form-group">
                 <button type="submit" class="btn btn-success btn-lg text-white">View Todos</button>
             </div>
