@@ -1,0 +1,31 @@
+micronaut:
+  application:
+    name: micronaut-todo-app
+  io:
+    watch:
+      paths: src/main
+      restart: true
+
+datasources:
+  default:
+    url: ${JDBC_URL:`jdbc:h2:mem:default;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE`}
+    username: ${JDBC_USER:sa}
+    password: ${JDBC_PASSWORD:""}
+    driverClassName: ${JDBC_DRIVER:org.h2.Driver}
+#datasources:
+#  default:
+#    url: jdbc:mysql://${MYSQL_HOSTNAME:localhost}:${MYSQL_PORT:3306}/${DATABASE:todo}?useSSL=false&serverTimezone=UTC
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    username: ${MYSQL_USERNAME:todo}
+#    password: ${MYSQL_PASSWORD:123456}
+    schema-generate: CREATE_DROP
+
+jpa:
+  default:
+    packages-to-scan:
+      - 'micronaut.todo.app.domain'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
