@@ -22,3 +22,6 @@ To promotion to production environment run:
 
     jx promote --app micronaut-todo-app --version v0.0.3 --env production
 
+This project using a custom build pack and you need to import then to your jx environment:
+
+    jx edit buildpack -u https://github.com/consultorprofissional/jenkins-x-kubernetes.git -r master -b
