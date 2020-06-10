@@ -1,1 +1,1 @@
-buildPack: docker
+buildPack: gradle5
