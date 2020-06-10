@@ -1,6 +1,6 @@
 # micronaut-todo-app
 
-A simple example of micronaut framework running in kuberntes with jenkins-x
+A Todo App build in micronaut framework running in kuberntes with jenkins-x
   
 Watch pipeline activity via:  
 
