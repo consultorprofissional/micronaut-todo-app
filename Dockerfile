@@ -3,7 +3,6 @@ COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon 
 
-
 FROM adoptopenjdk/openjdk11-openj9:jdk-11.0.1.13-alpine-slim
 COPY --from=build /home/gradle/src/build/libs/*-all.jar app.jar
 EXPOSE 8080
