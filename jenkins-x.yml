@@ -1,1 +1,1 @@
-buildPack: gradle-java11
+buildPack: docker
